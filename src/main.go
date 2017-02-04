@@ -18,4 +18,5 @@ func main() {
      deffer := animals.Dog{}
      deffer.SetName("Defer")
      fmt.Println(deffer.GetName(), "goes", deffer.MakeNoise())
+     fmt.Println(kitty.GetName(), "goes", kitty.MakeNoise())
 }

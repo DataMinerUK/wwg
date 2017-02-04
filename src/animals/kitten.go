@@ -11,3 +11,7 @@ func (k *Kitten) SetName(name string) {
 func (k *Kitten) GetName() string {
      return k.Name
 }
+
+func (k *Kitten) MakeNoise() string {
+  return "meow"
+}
