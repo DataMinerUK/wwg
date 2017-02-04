@@ -32,11 +32,11 @@ func main() {
          },
        },
      }
-     http.HandleFunc("/list", ListKittens)
+     http.HandleFunc("/list", ListPets)
      http.ListenAndServe(":9000", http.DefaultServeMux)
 }
 
-func ListKittens(rw http.ResponseWriter, r *http.Request) {
+func ListPets(rw http.ResponseWriter, r *http.Request) {
     data, err := json.Marshal(pets)
     if err != nil {
       rw.WriteHeader(http.StatusInternalServerError)
