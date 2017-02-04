@@ -20,4 +20,8 @@ func main() {
      kitty := Kitten{}
      kitty.SetName("Mr Tiggles")
      fmt.Println(kitty.GetName())
+
+     kitty2 := &kitty
+     kitty2.SetName("Mr Tom")
+     fmt.Println(kitty.GetName())
 }
