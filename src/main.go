@@ -14,4 +14,8 @@ func main() {
      kitty2.SetName("Mr Tom")
      fmt.Println(kitty.GetName())
      fmt.Println(kitty2.GetName())
+
+     deffer := animals.Dog{}
+     deffer.SetName("Defer")
+     fmt.Println(deffer.GetName(), "goes", deffer.MakeNoise())
 }
