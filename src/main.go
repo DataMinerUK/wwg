@@ -1,21 +1,32 @@
 package main
 
 import (
-     "fmt"
      "net/http"
+     "github.com/DataMinerUK/wwg/src/animals"
+     "encoding/json"
 )
 
+var kittens []animals.Kitten
+
 func main() {
-       http.HandleFunc("/hello", HelloWorld)
-       http.HandleFunc("/goodbye", Goodbye)
-       http.ListenAndServe(":9000", http.DefaultServeMux)
+     kittens = []animals.Kitten{
+       animals.Kitten{
+         Name: "Mr Tiggles",
+         Hobbies: []string{
+           "Playing with wool",
+           "Eating",
+         },
+       },
+     }
+     http.HandleFunc("/list", ListKittens)
+     http.ListenAndServe(":9000", http.DefaultServeMux)
 }
 
-func HelloWorld(rw http.ResponseWriter, r *http.Request) {
-      fmt.Fprint(rw, "Hello World!")
-}
-
-func Goodbye(rw http.ResponseWriter, r *http.Request) {
-      name := r.URL.Query().Get("name")
-      fmt.Fprint(rw, "Goodbye ", name, " 👋")
+func ListKittens(rw http.ResponseWriter, r *http.Request) {
+    data, err := json.Marshal(kittens)
+    if err != nil {
+      rw.WriteHeader(http.StatusInternalServerError)
+      return
+    }
+    rw.Write(data)
 }
