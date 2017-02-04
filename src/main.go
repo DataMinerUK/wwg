@@ -16,5 +16,6 @@ func HelloWorld(rw http.ResponseWriter, r *http.Request) {
 }
 
 func Goodbye(rw http.ResponseWriter, r *http.Request) {
-      fmt.Fprint(rw, "Goodbye cruel world 😖")
+      name := r.URL.Query().Get("name")
+      fmt.Fprint(rw, "Goodbye ", name, " 👋")
 }
