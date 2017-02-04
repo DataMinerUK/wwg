@@ -2,26 +2,16 @@ package main
 
 import (
      "fmt"
+     "github.com/DataMinerUK/wwg/src/animals"
 )
 
-type Kitten struct {
-     Name string
-}
-
-func (k *Kitten) SetName(name string) {
-     k.Name = name
-}
-
-func (k *Kitten) GetName() string {
-     return k.Name
-}
-
 func main() {
-     kitty := Kitten{}
+     kitty := animals.Kitten{}
      kitty.SetName("Mr Tiggles")
      fmt.Println(kitty.GetName())
 
      kitty2 := &kitty
      kitty2.SetName("Mr Tom")
      fmt.Println(kitty.GetName())
+     fmt.Println(kitty2.GetName())
 }
