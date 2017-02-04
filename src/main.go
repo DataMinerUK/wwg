@@ -5,5 +5,9 @@ import (
 )
 
 func main() {
-     fmt.Println("Hello World, this is a simple Go programme")
+     a := 5
+     b := &a
+     a = 7
+     fmt.Println(a)
+     fmt.Println(*b)
 }
