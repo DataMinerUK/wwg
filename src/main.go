@@ -7,9 +7,14 @@ import (
 
 func main() {
        http.HandleFunc("/hello", HelloWorld)
+       http.HandleFunc("/goodbye", Goodbye)
        http.ListenAndServe(":9000", http.DefaultServeMux)
 }
 
 func HelloWorld(rw http.ResponseWriter, r *http.Request) {
       fmt.Fprint(rw, "Hello World!")
+}
+
+func Goodbye(rw http.ResponseWriter, r *http.Request) {
+      fmt.Fprint(rw, "Goodbye cruel world 😖")
 }
