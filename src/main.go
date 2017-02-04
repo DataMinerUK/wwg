@@ -6,15 +6,29 @@ import (
      "encoding/json"
 )
 
-var kittens []animals.Kitten
+var pets []animals.Pet
 
 func main() {
-     kittens = []animals.Kitten{
-       animals.Kitten{
+     pets = []animals.Pet{
+       &animals.Kitten{
          Name: "Mr Tiggles",
          Hobbies: []string{
            "Playing with wool",
            "Eating",
+         },
+       },
+       &animals.Kitten{
+         Name: "Ms Tiddles",
+         Hobbies: []string{
+           "Scratching",
+           "Mouse hunt",
+         },
+       },
+       &animals.Dog{
+         Name: "Deffer",
+         Hobbies: []string{
+           "Wag tail",
+           "Sniff bum",
          },
        },
      }
@@ -23,7 +37,7 @@ func main() {
 }
 
 func ListKittens(rw http.ResponseWriter, r *http.Request) {
-    data, err := json.Marshal(kittens)
+    data, err := json.Marshal(pets)
     if err != nil {
       rw.WriteHeader(http.StatusInternalServerError)
       return
