@@ -6,5 +6,7 @@ Fun Go workshop with [Women Who Go](https://www.meetup.com/Women-Who-Go-London/)
 
 ```bash
 go build -o core/main src/main.go
-./core/main
+go run src/main.go
 ```
+
+Go to localhost:9000/list in your browser
